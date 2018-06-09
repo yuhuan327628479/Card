@@ -10,6 +10,8 @@ import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle.js';
 // Import F7 Styles
 import Framework7Styles from 'framework7/dist/css/framework7.css';
 
+import axios from 'axios';
+
 // Import Icons and App Custom Styles
 import IconsStyles from './css/icons.css';
 import AppStyles from './css/app.css';
@@ -21,7 +23,9 @@ import Routes from './routes.js'
 import App from './app';
 
 // Init F7 Vue Plugin
-Vue.use(Framework7Vue, Framework7)
+Vue.use(Framework7Vue, Framework7);
+
+Vue.prototype.$ajax = axios;
 
 // Init App
 new Vue({
