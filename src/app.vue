@@ -13,8 +13,9 @@
 
     <!-- Main View -->
     <f7-view id="main-view" url="/" main>
+      
+      <!-- bottom toolbar -->
      <div class="toolbar toolbar-bottom-md tabbar tabbar-labels">
-     
       <div class="toolbar-inner">
         <a href="#tab1" class="tab-link active">
            
@@ -38,15 +39,16 @@
            <i class="f7-icons">more</i>
             <span class="tabbar-label">更多</span>
         </a>
-    </div>
-
      </div>
+     </div>
+      <!-- end of bottom toolbar -->
+
+
     </f7-view>
 
-    </f7-views>
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
