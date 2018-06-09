@@ -1,16 +1,8 @@
 <template>
   <f7-page>
-        <f7-navbar>
-          <f7-nav-left>
-            <a href="#" class="button">
-              <i class="f7-icons">arrow_left</i>
-            </a>
-          </f7-nav-left>
-          <f7-nav-title>{{title}}</f7-nav-title>
-          <f7-nav-right>
-            <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="right"></f7-link>
-          </f7-nav-right>
-        </f7-navbar>
+        
+        <!-- page nav header -->
+         <pageheader></pageheader>
          
          <div class="searchbar-backdrop"></div>
             <div class="searchbar">
@@ -47,10 +39,14 @@
 
 </template>
 <script>
+import pageheader from "@/pages/pageheader";
+
 export default {
+  components: {
+    pageheader
+  },
   data() {
     return {
-      title: "名片系统",
       rootapiurl: "http://localhost:8082/",
       imgurl: "http://localhost:8082/Images/1.jpg",
       diaries: [],
@@ -76,11 +72,11 @@ export default {
         });
     },
     searchdiaries() {
-       let _this = this;
+      let _this = this;
       _this
         .$ajax({
           method: "get",
-          url: _this.rootapiurl + "api/Diary/SearchByKey/"+_this.searchkey
+          url: _this.rootapiurl + "api/Diary/SearchByKey/" + _this.searchkey
           // data:_this.searchkey
         })
         .then(function(res) {
@@ -90,7 +86,6 @@ export default {
           }
           console.log(res.status);
         });
-
     }
   },
   mounted: function() {

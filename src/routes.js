@@ -7,6 +7,8 @@ import NotFoundPage from './pages/not-found.vue';
 import PanelLeftPage from './pages/panel-left.vue';
 import PanelRightPage from './pages/panel-right.vue';
 
+import PageHeader from './pages/pageheader'
+
 export default [
   {
     path: '/',
@@ -36,4 +38,9 @@ export default [
     path: '(.*)',
     component: NotFoundPage,
   },
+  {
+		path:'/pageheader/',
+		name:'PageHeader',
+		component:PageHeader
+	},
 ];
