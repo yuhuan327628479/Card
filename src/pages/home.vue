@@ -19,7 +19,7 @@
             <div class="list media-list">
               <template v-for="item in diaries">
                  
-                    <a href="/about" class="item-link item-content">
+                    <a v-bind:href="getdetailurl(item)" class="item-link item-content">
                       <div class="item-media">
                         <img v-bind:src="imgurl" width="80" />
                       </div>
@@ -34,22 +34,6 @@
                 
                 </template>
 
-              
-               <!-- <div v-for="item in diaries">
-                      <div @click="toDetail(item)" class="item-link item-content">
-                                  <div class="item-media">
-                                    <img v-bind:src="imgurl" width="80" />
-                                  </div>
-                                  <div class="item-inner">
-                                    <div class="item-title-row">
-                                      <div class="item-title">{{item.TagName}}</div>
-                                    </div>
-                                    <div class="item-subtitle">{{item.KnowledgePoint}}</div>
-                                    <div class="item-text">{{item.DiaryContent}}</div>
-                                  </div>
-                                </div> 
-                </div>
-                 -->
             </div>
         
   </f7-page>
@@ -88,6 +72,9 @@ export default {
           }
           console.log(res.status);
         });
+    },
+    getdetailurl(obj){
+     return "/about/"+obj.Id;
     },
     toDetail(obj) {
       console.log("test");

@@ -14,6 +14,9 @@
 <script>
 export default {
   created(){
+    let _this=this;
+   var id = _this.$f7Route.params.Id;
+ console.log(id);
   },
   data() {
     return {
@@ -37,6 +40,7 @@ export default {
         "User": "Mark Yu"
       }
     };
-  }
+  },
+
 }
 </script>
