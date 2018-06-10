@@ -9,7 +9,6 @@ import PanelRightPage from './pages/panel-right.vue';
 
 import PageHeader from './pages/pageheader.vue';
 
-import DetailPage from './pages/detail.vue';
 
 export default [
   {
@@ -42,13 +41,10 @@ export default [
     component: NotFoundPage,
   },
   {
-		path:'/pageheader/',
-		name:'PageHeader',
-		component:PageHeader,
+		path: '/pageheader/',
+		name: 'PageHeader',
+		component: PageHeader,
   },
-  {
-		path:'/detail/',
-		name:'DetailPage',
-		component:DetailPage,
-	},
+  
+
 ];
