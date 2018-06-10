@@ -24,27 +24,46 @@ import App from './app';
 
 import store from './store';
 
+import VueRouter from 'vue-router'
+
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7);
 
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: Routes
+})
 
 Vue.prototype.$ajax = axios;
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
+  store.commit('changeowner', 'huanyu');
   return config;
 }, function (error) {
   // 对请求错误做些什么
   return Promise.reject(error);
 });
 
+//进入页面路由跳转
+let pathArr = location.href.split('/');
+let pathRoute = pathArr[pathArr.length - 1];
+if(pathRoute == '') {
+	router.push({
+		path: '/'
+	})
+}
+
 
 // Init App
 new Vue({
   el: '#app',
   store,
+  router,
   template: '<app/>',
   // Init Framework7 by passing parameters here
   framework7: {
@@ -59,3 +78,6 @@ new Vue({
     app: App
   }
 });
+
+
+

@@ -3,7 +3,7 @@
    <f7-navbar title="手动录入" back-link="Back"></f7-navbar>
       <f7-list form>
         <f7-list-item>
-          <f7-label>分类{{ postTitle }}</f7-label>
+          <f7-label>分类</f7-label>
         
         </f7-list-item>
       </f7-list>
@@ -13,7 +13,8 @@
 
 <script>
 export default {
-  props: ['postTitle'],
+  created(){
+  },
   data() {
     return {
       selected: "0",
@@ -28,7 +29,13 @@ export default {
         { ID: "7", Value: "日常生活" },
         { ID: "8", Value: "其他" }
       ],
-      inputdiary:this.postTitle
+     inputdiary: {
+        "TagName": "",
+        "DiaryContent": "",
+        "KnowledgePoint": "",
+        "Remark": "",
+        "User": "Mark Yu"
+      }
     };
   }
 }

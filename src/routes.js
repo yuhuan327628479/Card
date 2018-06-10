@@ -25,7 +25,7 @@ export default [
     component: PanelRightPage,
   },
   {
-    path: '/about/',
+    path: '/about',
     name:'about',
     component: AboutPage,
   },

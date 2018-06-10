@@ -17,35 +17,20 @@
             </div>
 
             <div class="list media-list">
-              <ul>
-                  <li v-for="item in diaries">
-                    
-                    <f7-link href="/about/" @click="toDetail(item)" class="item-link item-content">
-                     <div class="item-media">
-                        <img v-bind:src="imgurl" width="80" />
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title-row">
-                          <div class="item-title">{{item.TagName}}</div>
-                        </div>
-                        <div class="item-subtitle">{{item.KnowledgePoint}}</div>
-                        <div class="item-text">{{item.DiaryContent}}</div>
-                      </div>
-                    </f7-link>
-                    <!-- <a v-bind:href="localhost"  v-bind:itemdata="item" class="item-link item-content">
-                      <div class="item-media">
-                        <img v-bind:src="imgurl" width="80" />
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title-row">
-                          <div class="item-title">{{item.TagName}}</div>
-                        </div>
-                        <div class="item-subtitle">{{item.KnowledgePoint}}</div>
-                        <div class="item-text">{{item.DiaryContent}}</div>
-                      </div>
-                    </a> -->
-                  </li>
-              </ul>
+               <div v-for="item in diaries">
+                      <div @click="toDetail(item)" class="item-link item-content">
+                                  <div class="item-media">
+                                    <img v-bind:src="imgurl" width="80" />
+                                  </div>
+                                  <div class="item-inner">
+                                    <div class="item-title-row">
+                                      <div class="item-title">{{item.TagName}}</div>
+                                    </div>
+                                    <div class="item-subtitle">{{item.KnowledgePoint}}</div>
+                                    <div class="item-text">{{item.DiaryContent}}</div>
+                                  </div>
+                                </div> 
+                </div>
             </div>
         
   </f7-page>
@@ -60,12 +45,13 @@ export default {
   },
   data() {
     return {
-      rootapiurl:this.$store.state.rootapiurl,
+      rootapiurl: this.$store.state.rootapiurl,
       imgurl: this.$store.state.imgurl,
       diaries: [],
+      owner: this.$store.state.owner,
       searchkey: "",
       savesuccess: this.$store.state.savesuccess,
-      savefailed: this.$store.state.savefailed,
+      savefailed: this.$store.state.savefailed
     };
   },
   methods: {
@@ -84,15 +70,11 @@ export default {
           console.log(res.status);
         });
     },
-    toDetail(obj){
-      let _this=this;
-				_this.$router.push({
-					path:'/about/',
-					query:{
-						articleId:obj.TagName
-					}
-				})
-			},
+    toDetail(obj) {
+      console.log("test");
+      let _this = this;
+      _this.$router.push({ path: "/about/" });
+    },
     searchdiaries() {
       let _this = this;
       _this
