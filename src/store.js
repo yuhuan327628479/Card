@@ -23,7 +23,14 @@ const mutations = {
   }
 };
 
+const actions ={
+  changeowner(context,args) {
+    context.commit("changeowner",args);
+}
+}
+
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions,
 });
