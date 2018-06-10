@@ -17,7 +17,25 @@
             </div>
 
             <div class="list media-list">
-               <div v-for="item in diaries">
+              <template v-for="item in diaries">
+                 
+                    <a :href="about" class="item-link item-content">
+                      <div class="item-media">
+                        <img v-bind:src="imgurl" width="80" />
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">{{item.TagName}}</div>
+                        </div>
+                        <div class="item-subtitle">{{item.KnowledgePoint}}</div>
+                        <div class="item-text">{{item.DiaryContent}}</div>
+                      </div>
+                    </a>
+                
+                </template>
+
+              
+               <!-- <div v-for="item in diaries">
                       <div @click="toDetail(item)" class="item-link item-content">
                                   <div class="item-media">
                                     <img v-bind:src="imgurl" width="80" />
@@ -31,6 +49,7 @@
                                   </div>
                                 </div> 
                 </div>
+                 -->
             </div>
         
   </f7-page>
@@ -73,7 +92,7 @@ export default {
     toDetail(obj) {
       console.log("test");
       let _this = this;
-      _this.$router.push({ path: "/about/" });
+      this.$router.push({ path: "/about" });
     },
     searchdiaries() {
       let _this = this;
