@@ -15,10 +15,9 @@
 
     <!-- Main View -->
     <f7-views tabs>
-    <f7-view id="main-view" url="/" main tab tab-active>
-    </f7-view>
+    <f7-view id="main-view" url="/" main tab tab-active></f7-view>
     <f7-view id="tab2" url="/about/" tab></f7-view>
-    <f7-view id="tab3" url="/about/" tab></f7-view>
+    <f7-view id="tab3" url="/detail/" tab></f7-view>
     <f7-view id="tab4" url="/about/" tab></f7-view>
     <f7-view id="tab5" url="/form/" tab></f7-view>
 

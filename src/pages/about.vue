@@ -1,16 +1,35 @@
 <template>
   <f7-page>
-    <f7-navbar title="About" back-link="Back"></f7-navbar>
-    <f7-block-title>About My App</f7-block-title>
-    <f7-block strong>
-      <p>Here is About page!</p>
-      <p>You can go <f7-link back>back</f7-link>.</p>
-      <p>Mauris posuere sit amet metus id venenatis. Ut ante dolor, tempor nec commodo rutrum, varius at sem. Nullam ac nisi non neque ornare pretium. Nulla mauris mauris, consequat et elementum sit amet, egestas sed orci. In hac habitasse platea dictumst.</p>
-      <p>Fusce eros lectus, accumsan eget mi vel, iaculis tincidunt felis. Nulla tincidunt pharetra sagittis. Fusce in felis eros. Nulla sit amet aliquam lorem, et gravida ipsum. Mauris consectetur nisl non sollicitudin tristique. Praesent vitae metus ac quam rhoncus mattis vel et nisi. Aenean aliquet, felis quis dignissim iaculis, lectus quam tincidunt ligula, et venenatis turpis risus sed lorem. Morbi eu metus elit. Ut vel diam dolor.</p>
-    </f7-block>
+   <f7-navbar title="手动录入" back-link="Back"></f7-navbar>
+      <f7-list form>
+        <f7-list-item>
+          <f7-label>分类{{ postTitle }}</f7-label>
+        
+        </f7-list-item>
+      </f7-list>
+        
   </f7-page>
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['postTitle'],
+  data() {
+    return {
+      selected: "0",
+      tagnames: [
+        { ID: "0", Value: "请选择分类" },
+        { ID: "1", Value: "C#.NET" },
+        { ID: "2", Value: "ASP.NET" },
+        { ID: "3", Value: "VB.NET" },
+        { ID: "4", Value: "前端" },
+        { ID: "5", Value: "数据库" },
+        { ID: "6", Value: "英语" },
+        { ID: "7", Value: "日常生活" },
+        { ID: "8", Value: "其他" }
+      ],
+      inputdiary:this.postTitle
+    };
+  }
+}
 </script>

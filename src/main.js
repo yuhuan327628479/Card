@@ -22,14 +22,29 @@ import Routes from './routes.js'
 // Import App Component
 import App from './app';
 
+import store from './store';
+
+
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7);
 
+
 Vue.prototype.$ajax = axios;
+
+// 添加请求拦截器
+axios.interceptors.request.use(function (config) {
+  // 在发送请求之前做些什么
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  return Promise.reject(error);
+});
+
 
 // Init App
 new Vue({
   el: '#app',
+  store,
   template: '<app/>',
   // Init Framework7 by passing parameters here
   framework7: {

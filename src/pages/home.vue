@@ -18,8 +18,21 @@
 
             <div class="list media-list">
               <ul>
-                  <li v-for="item in diaries"> 
-                    <a href="#" class="item-link item-content">
+                  <li v-for="item in diaries">
+                    
+                    <f7-link href="/about/" @click="toDetail(item)" class="item-link item-content">
+                     <div class="item-media">
+                        <img v-bind:src="imgurl" width="80" />
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">{{item.TagName}}</div>
+                        </div>
+                        <div class="item-subtitle">{{item.KnowledgePoint}}</div>
+                        <div class="item-text">{{item.DiaryContent}}</div>
+                      </div>
+                    </f7-link>
+                    <!-- <a v-bind:href="localhost"  v-bind:itemdata="item" class="item-link item-content">
                       <div class="item-media">
                         <img v-bind:src="imgurl" width="80" />
                       </div>
@@ -30,7 +43,7 @@
                         <div class="item-subtitle">{{item.KnowledgePoint}}</div>
                         <div class="item-text">{{item.DiaryContent}}</div>
                       </div>
-                    </a>
+                    </a> -->
                   </li>
               </ul>
             </div>
@@ -47,12 +60,12 @@ export default {
   },
   data() {
     return {
-      rootapiurl: "http://localhost:8082/",
-      imgurl: "http://localhost:8082/Images/1.jpg",
+      rootapiurl:this.$store.state.rootapiurl,
+      imgurl: this.$store.state.imgurl,
       diaries: [],
       searchkey: "",
-      savesuccess: "保存成功",
-      savefailed: "保存失败"
+      savesuccess: this.$store.state.savesuccess,
+      savefailed: this.$store.state.savefailed,
     };
   },
   methods: {
@@ -71,6 +84,15 @@ export default {
           console.log(res.status);
         });
     },
+    toDetail(obj){
+      let _this=this;
+				_this.$router.push({
+					path:'/about/',
+					query:{
+						articleId:obj.TagName
+					}
+				})
+			},
     searchdiaries() {
       let _this = this;
       _this

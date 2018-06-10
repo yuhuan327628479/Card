@@ -7,7 +7,9 @@ import NotFoundPage from './pages/not-found.vue';
 import PanelLeftPage from './pages/panel-left.vue';
 import PanelRightPage from './pages/panel-right.vue';
 
-import PageHeader from './pages/pageheader'
+import PageHeader from './pages/pageheader.vue';
+
+import DetailPage from './pages/detail.vue';
 
 export default [
   {
@@ -24,6 +26,7 @@ export default [
   },
   {
     path: '/about/',
+    name:'about',
     component: AboutPage,
   },
   {
@@ -41,6 +44,11 @@ export default [
   {
 		path:'/pageheader/',
 		name:'PageHeader',
-		component:PageHeader
+		component:PageHeader,
+  },
+  {
+		path:'/detail/',
+		name:'DetailPage',
+		component:DetailPage,
 	},
 ];
