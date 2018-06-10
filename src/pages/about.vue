@@ -2,26 +2,32 @@
   <f7-page>
    <f7-navbar title="手动录入" back-link="Back"></f7-navbar>
       <f7-list form>
+        
+         <f7-list-item>
+          <img v-bind:src="imgurl" width="300" slot="media"/>
+         </f7-list-item>
+
         <f7-list-item>
           <f7-label>分类</f7-label>
-           <f7-input type="select" :value="inputdiary.TagName" @input="inputdiary.TagName = $event.target.value" >
+           <!-- <f7-input type="select" :value="inputdiary.TagName" @input="inputdiary.TagName = $event.target.value" >
               <option  :value="item.ID" v-for="item in tagnames">{{item.Value}}</option>
-          </f7-input>
+          </f7-input> -->
+          <f7-input type="text" :value="inputdiary.TagName" @input="inputdiary.TagName = $event.target.value" placeholder="请输入分类"  disabled></f7-input>
         </f7-list-item>
 
         <f7-list-item>
           <f7-label>知识点</f7-label>
-          <f7-input type="text" :value="inputdiary.KnowledgePoint" @input="inputdiary.KnowledgePoint = $event.target.value" placeholder="请输入知识点" clear-button></f7-input>
+          <f7-input type="text" :value="inputdiary.KnowledgePoint" @input="inputdiary.KnowledgePoint = $event.target.value" placeholder="请输入知识点" disabled></f7-input>
         </f7-list-item>
 
         <f7-list-item>
           <f7-label>详细描述</f7-label>
-          <f7-input type="textarea" :value="inputdiary.DiaryContent" @input="inputdiary.DiaryContent = $event.target.value" placeholder="请输入详细描述" clear-button></f7-input>
+          <f7-input type="textarea" :value="inputdiary.DiaryContent" @input="inputdiary.DiaryContent = $event.target.value" placeholder="请输入详细描述" disabled></f7-input>
         </f7-list-item>
 
         <f7-list-item>
             <f7-label>备注</f7-label>
-            <f7-input type="textarea" :value="inputdiary.Remark" @input="inputdiary.Remark = $event.target.value" placeholder="请输入备注" clear-button></f7-input>
+            <f7-input type="textarea" :value="inputdiary.Remark" @input="inputdiary.Remark = $event.target.value" placeholder="请输入备注" disabled></f7-input>
         </f7-list-item>
        
         
@@ -42,6 +48,7 @@ export default {
     return {
       rootapiurl: this.$store.state.rootapiurl,
       selected: null,
+      imgurl: this.$store.state.imgurl,
       tagnames: [
         { ID: "0", Value: "请选择分类" },
         { ID: "1", Value: "C#.NET" },
@@ -74,12 +81,10 @@ export default {
           if (res.status == "200") {
             _this.inputdiary = res.data;
             _this.tagnames.forEach(element => {
-              if(element.Value==_this.inputdiary.TagName){
-                _this.selected=element.ID;
-              }
-              else
-              {
-                _this.selected="8";
+              if (element.Value == _this.inputdiary.TagName) {
+                _this.selected = element.ID;
+              } else {
+                _this.selected = "8";
               }
             });
             console.log(res.data);
