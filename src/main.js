@@ -30,12 +30,14 @@ import VueRouter from 'vue-router'
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7);
 
-Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
   routes: Routes
 })
+
+Vue.use(VueRouter)
+
 
 Vue.prototype.$ajax = axios;
 

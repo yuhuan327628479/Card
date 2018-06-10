@@ -2,6 +2,8 @@
 
   <f7-page>
           <f7-navbar v-bind:title="panel_title" sliding></f7-navbar>
+     
+         
           <f7-list>
 
             <f7-list-item link="#" title="高级搜索"></f7-list-item>
@@ -16,11 +18,10 @@
 </template>
 <script>
 export default {
-  data(){
+  data() {
     return {
-     panel_title:'选择'
-    }
+      panel_title: "选择"
+    };
   }
- 
-}
+};
 </script>

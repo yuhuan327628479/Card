@@ -9,6 +9,8 @@ import PanelRightPage from './pages/panel-right.vue';
 
 import PageHeader from './pages/pageheader.vue';
 
+import MorePage from './pages/more.vue';
+
 
 export default [
   {
@@ -45,6 +47,9 @@ export default [
 		name: 'PageHeader',
 		component: PageHeader,
   },
-  
+  {
+		path: '/more',
+		component: MorePage
+  },
 
 ];

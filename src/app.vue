@@ -19,7 +19,9 @@
     <f7-view id="tab2" url="/form/" tab></f7-view>
     <f7-view id="tab3" url="/form/" tab></f7-view>
     <f7-view id="tab4" url="/form/" tab></f7-view>
-    <f7-view id="tab5" url="/form/" tab></f7-view>
+    <f7-view id="tab5" tab>
+     <more></more>
+     </f7-view>
 
    <!-- bottom toolbar -->
      <div class="toolbar toolbar-bottom-md tabbar tabbar-labels">
@@ -51,12 +53,19 @@
       <!-- end of bottom toolbar -->
     </f7-views>
 
-    
 
   </div>
 
 </template>
 
 <script>
-export default {};
+import rightpanel from "@/pages/panel-right";
+import more from "@/pages/more";
+
+export default {
+  components: {
+    rightpanel,
+    more
+  }
+};
 </script>
