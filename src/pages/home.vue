@@ -19,7 +19,7 @@
             <div class="list media-list">
               <template v-for="item in diaries">
                  
-                    <a :href="about" class="item-link item-content">
+                    <a href="/about" class="item-link item-content">
                       <div class="item-media">
                         <img v-bind:src="imgurl" width="80" />
                       </div>
