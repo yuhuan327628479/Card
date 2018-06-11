@@ -94,11 +94,11 @@ export default {
     },
     pushdata() {
       let _this = this;
-      for (var i = 1; i <= _this.pagesize && i < _this.alldiaries.length; i++) {
+      for (var i = 1; i <= _this.pagesize && i <= _this.alldiaries.length; i++) {
         _this.diaries.push(_this.alldiaries[i - 1]);
+         console.log("开始加载：" + _this.diaries.length);
+         console.log(JSON.stringify(_this.alldiaries[i - 1]));
       }
-      _this.top = 1;
-      _this.bottom = _this.diaries.length;
     },
     getdetailurl(obj) {
       return "/about/" + obj.Id;
@@ -110,9 +110,11 @@ export default {
       _this.$refs.myscroller.resize();
       setTimeout(() => {
         var start = _this.diaries.length + 1;
-        for (var i = start; i < start + _this.pagesize && i<_this.alldiaries.length; i++) {
-          _this.diaries.push(_this.alldiaries[start - 1]);
-           console.log("开始加载：" + _this.diaries.length);
+        for (var i = start; i < start + _this.pagesize && i<=_this.alldiaries.length; i++) {
+          _this.diaries.push(_this.alldiaries[i - 1]);
+         console.log("开始加载：" + _this.diaries.length);
+         console.log(JSON.stringify(_this.alldiaries[i - 1]));
+
         }
 
         _this.bottom = _this.diaries.length + 1;
