@@ -26,6 +26,7 @@ import store from './store';
 
 import VueRouter from 'vue-router'
 
+import VueScroller from 'vue-scroller'
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7);
@@ -38,6 +39,7 @@ const router = new VueRouter({
 
 Vue.use(VueRouter)
 
+Vue.use(VueScroller)
 
 Vue.prototype.$ajax = axios;
 
