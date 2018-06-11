@@ -17,7 +17,7 @@
             </div>
 
             <div class="list media-list">
-              <scroller ref="myscroller" :on-refresh="infinite">
+              <scroller ref="myscroller"  :on-infinite="infinite" :on-refresh="infinite">
                 <template v-for="(item, index) in diaries">
                 </template>
               </scroller>
