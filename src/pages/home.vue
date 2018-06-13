@@ -17,7 +17,7 @@
             </div>
 
             <div class="list media-list">
-              <scroller ref="myscroller"  :on-infinite="infinite" :on-refresh="infinite">
+              <scroller ref="myscroller"  :on-infinite="infinite">
                 <template v-for="(item, index) in diaries">
                 </template>
               </scroller>
@@ -37,7 +37,11 @@
                     </a>
                 
                 </template>
-               <button @click="infinite" class="button">加载更多</button>
+               <div class="toolbar toolbar-bottom-md">
+                <div class="toolbar-inner">
+                    <a href="#"  @click="infinite" class="button">加载更多</a>
+                </div>
+</div>
             </div>
         
   </f7-page>
@@ -111,7 +115,7 @@ export default {
           console.log("开始加载：" + _this.diaries.length);
           console.log(JSON.stringify(_this.alldiaries[i - 1]));
         }
-        done()
+        done();
       }, 1500);
     },
     searchdiaries() {
