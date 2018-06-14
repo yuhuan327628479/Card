@@ -1,6 +1,6 @@
 <template>
-  <f7-page>
-        
+  <div class="page">
+   <div class="page-content page-content-padding-top">
         <!-- page nav header -->
          <pageheader></pageheader>
          
@@ -12,39 +12,44 @@
                   <i class="searchbar-icon"></i>
                   <span class="input-clear-button"></span>
                 </div>
-                <span class="searchbar-disable-button">Cancel</span>
+                <span class="searchbar-button"><f7-button  @click="searchdiaries" class="button">查询</f7-button></span>
               </div>
             </div>
-
-            <div class="list media-list">
-              <scroller ref="myscroller"  :on-infinite="infinite">
-                <template v-for="(item, index) in diaries">
-                </template>
-              </scroller>
-              <template v-for="item in diaries">
-                 
-                    <a v-bind:href="getdetailurl(item)" class="item-link item-content">
-                      <div class="item-media">
+            
+            <div class="list media-list about-form-margin">
+            <ul class="list">
+              <scroller ref="myscroller" style="overflow: visible;" :on-refresh="infinite">
+               <template v-for="(item, index) in diaries">
+                <li class="swipeout">
+                <div class="swipeout-content">
+                  
+                    <a v-bind:href="getdetailurl(item)" class="item-content item-link">
+                    <div class="item-media">
+                        <!-- <img v-bind:src="getimgurl(item.CARD_IMG_URL)" :onerror="commonimgurl" width="80" /> -->
                         <img v-bind:src="imgurl" width="80" />
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title-row">
+                        </div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
                           <div class="item-title">{{item.TagName}}</div>
                         </div>
                         <div class="item-subtitle">{{item.KnowledgePoint}}</div>
                         <div class="item-text">{{item.DiaryContent}}</div>
-                      </div>
+                    </div>
                     </a>
-                
-                </template>
-               <div class="toolbar toolbar-bottom-md">
-                <div class="toolbar-inner">
-                    <a href="#"  @click="infinite" class="button">加载更多</a>
+                 
                 </div>
-</div>
-            </div>
-        
-  </f7-page>
+                <div class="swipeout-actions-right">
+                  <a href="#" class="swipeout-delete">Delete</a>
+                </div>
+              </li>
+               </template>
+               </scroller>
+            </ul>
+            
+          </div>
+
+        </div>
+ </div>
 
 </template>
 <script>
@@ -128,7 +133,9 @@ export default {
         })
         .then(function(res) {
           if (res.status == "200") {
-            _this.diaries = res.data;
+            _this.diaries=[];
+            _this.alldiaries = res.data;
+            _this.init();
             console.log(res.data);
           }
           console.log(res.status);

@@ -1,7 +1,7 @@
 <template>
   <f7-page>
    <f7-navbar title="手动录入" back-link="Back"></f7-navbar>
-      <f7-list form>
+      <f7-list class="about-form-margin"  form>
         
          <f7-list-item>
           <img v-bind:src="imgurl" width="300" slot="media"/>
